@@ -1,0 +1,158 @@
+﻿<title>공연은 지하철을 타고...</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../static/css/fonts.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+#navbar{
+	height:200px;
+	/*border: 2px solid gray;*/
+}
+.col-md-4{
+	padding-top:40px;
+	height:200px;
+}
+.col-md-7{
+	height:200px;
+	border:2px solid #FF9999;
+}
+.span12{
+	border:2px solid #A8C1FF;
+	height:500px;
+}
+.span6{
+	height:100px;
+	color:gray;
+}
+.menulist{
+	padding-top: 70px;
+}
+.menu{
+	font-family: 'Ttalgimakarong';
+	font-size: 23px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	color: black;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+}
+.menu:hover{
+	font-family: 'Ttalgimakarong';
+	font-size: 23px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	color: white;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	background-color: black;
+}
+#footer {
+	padding-top: 30px;
+	height: 100px;
+	/*border: 2px solid gray;*/
+}
+</style>
+<div id="navbar">
+	<div class="row">
+	<div class="col-md-offset-1 col-md-4">
+    <img src="../static/img/logo.jpg" class="img-rounded" alt="Cinque Terre" width="500" height="130">
+	</div>
+	<div class="col-md-offset-1 col-md-6">
+	    <div class="span6 menulist">
+	    	<a href="./index.html" class="menu">홈</a>
+	    	<a href="./search.html" class="menu">검색하기</a>
+	    	<a href="./calender.html" class="menu">공연달력</a>
+	    	<a href="#" class="menu">공연노선도</a>
+	    </div>
+	</div>
+	</div>
+</div>
+{% block body %}
+{% endblock %}
+<div id="footer">
+	<div id="buttonlist" class="col-sm-offset-5 col-sm-4">
+		<!-- Trigger the modal with a button -->
+		<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#login">로그인</button>
+
+		<!-- Modal -->
+		<div id="login" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title text-center">로그인하기</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="email">이메일 :</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="email" placeholder="Enter email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="pwd">비밀번호 :</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="pwd" placeholder="Enter password">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-default">로그인</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Trigger the modal with a button -->
+		<button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#join">회원가입</button>
+
+		<!-- Modal -->
+		<div id="join" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title text-center">회원가입하기</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="email">이메일 :</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="email" placeholder="Enter email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="pwd">비밀번호 :</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="pwd" placeholder="Enter password">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-default">회원가입</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+﻿{% extends "search.html" %}
+
+{%block result%}
+
+{% for i in range(5) %}
+<div id="list_item">
+    <div id="imgname">
+        <p id="per_img"> <img src="http://www.raccoonbot.com/wp-content/plugins/special-recent-posts/images/no-thumb.png"> </p>
+        <div id="per">
+            <p id="per_name"> <a href="#"> {{name}} </a> </p>
+            <p id="per_genre"> {{cate}} </p>
+            <p id="per_place"> 공연 장소 </p>
+            <p id="per_time"> 공연 시간 </p>
+        </div>
+        <p id="like"> <a href="#"><img src="../static/img/like.png"></a> </p>
+    </div>
+</div>
+{% endfor %}
+
+{%endblock%}

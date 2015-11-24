@@ -1,0 +1,57 @@
+﻿<html>
+
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../static/css/fonts.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <meta charset="utf-8" />
+    <title>공연은 지하철을 타고...</title>
+    <style>
+       .span8 {
+            border: 2px solid #A8C1FF;
+            height: 500px;
+            text-align:center;
+        }
+       .span8 > img {
+           
+       }
+       .span8 > h1{
+           font-family: 'Ttalgimakarong';
+       }
+       .span8 > btn{
+           width:10px;
+           height:10px;
+           border-radius:50px;
+           color:yellow;
+           opacity:1.0;
+       }
+       .span8 > btn:hover{
+           color:yellow;
+           opacity:0.5;
+       }
+       .span8> #sadang{
+           border-color:red;
+           width:10px;
+           height:10px;
+           position:relative;
+           right:50px;
+           border-radius:50px;
+           color:yellow;
+           opacity:1.0;
+       }
+    </style>
+</head>
+<body>
+    {%extends "header.html"%}
+    {%block body%}
+    <div class="span8">
+        <h1>공연 노선도</h1>
+        <img src="static/img/linemap2.png" />
+        <span class="btn" id="sadang"></span>
+    </div>
+    {%endblock%}
+</body>
+</html>

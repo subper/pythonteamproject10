@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>bc810e6d-c5ba-44c2-982c-68d2b0f33788</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>pythonteamproject10.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>pythonteamproject10</Name>
+    <RootNamespace>pythonteamproject10</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="pythonteamproject10.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="static\img\" />
+    <Folder Include="static\js\" />
+    <Folder Include="templates\" />
+    <Folder Include="static\" />
+    <Folder Include="static\css\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="static\css\fonts.css" />
+    <Content Include="static\css\search_css.css" />
+    <Content Include="static\css\THE_Ttalgimakarong.ttf" />
+    <Content Include="static\img\like.png" />
+    <Content Include="static\img\like_red.png" />
+    <Content Include="static\img\logo.jpg" />
+    <Content Include="static\js\calender.js" />
+    <Content Include="templates\calender.html" />
+    <Content Include="templates\header.html" />
+    <Content Include="templates\performer_info.html" />
+    <Content Include="templates\search.html" />
+    <Content Include="templates\search_result.html" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
+  <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

@@ -1,0 +1,22 @@
+﻿<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/result_css.css') }}">
+{% extends "header.html" %}
+{% block body %}
+
+<div id="block"></div>
+
+{% for entry in result %}
+<div id="list_item">
+    <div id="imgname">
+        <p id="per_img"> {%if entry.pic == None%} <img src="http://www.raccoonbot.com/wp-content/plugins/special-recent-posts/images/no-thumb.png"> {%else%} <img src="{{entry.pic}}"> {%endif%} </p>
+        <div id="per">
+            <p id="per_name"> <a href="{{ url_for('performer_info', pname=entry.name) }}"> {{entry.name}} </a> </p>
+            <p id="per_genre"> {{entry.genre}} </p>
+            <p id="per_place"> {{entry.place}} </p>
+            <p id="per_time"> {{entry.time}} </p>
+        </div>
+        <p id="like"><a href="#"><img src="../static/img/like.png"></a> </p>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

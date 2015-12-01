@@ -1,0 +1,27 @@
+﻿<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/search_css.css') }}">
+
+{% extends "header.html" %}
+
+{%block body%}
+
+<h2> 검색 하기</h2>
+
+<div class="search_bar">
+
+    <form class="form_search form-inline" method=post action="{{ url_for('search_result') }}" >
+
+        <select class="form-control input_category" name="category">
+            <option value="name">공연자</option>
+            <option value="genre">공연장르</option>
+        </select>
+        <input type="text" class="form-control input_search" name="input" placeholder="검색어를 입력하세요">
+        <input class="btn btn-success btn-md" type="submit" value="검  색">
+    </form>
+
+    <br />
+</div>
+
+{%block result%}
+{%endblock%}
+
+{%endblock%}

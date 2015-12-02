@@ -1,0 +1,11 @@
+/*****************fonts setting*****************/
+@font-face {
+	font-family: 'Ttalgimakarong';
+	font-style: normal;
+	src: url('./THE_Ttalgimakarong.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Oegyein';
+	font-style: normal;
+	src: url('./THE_Oegyeinseolmyeongseo.ttf') format('truetype');
+}

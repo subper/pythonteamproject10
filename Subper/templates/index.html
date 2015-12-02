@@ -1,0 +1,88 @@
+﻿<html>
+<head>
+<title>공연은 지하철을 타고...</title>
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+#navbar{
+	height:200px;
+	
+}
+.col-md-4{
+	
+	padding-top:40px;
+	height:200px;
+}
+.col-md-7{
+	height:200px;
+	border:2px solid #FF9999;
+}
+.span12{
+	border:2px solid #A8C1FF;
+	height:500px;
+}
+.span6{
+	height:100px;
+	color:gray;
+}
+.container{
+	height:400px;
+
+}
+#search_box{
+	border:2px solid #FF5252;
+	margin-top:40px;
+	margin-left:5px;
+	margin-right:20px;
+	width:360px;
+	height:300px;
+}
+#cal_box{
+	border:2px solid #69FF52;
+	margin-top:40px;
+	margin-right:20px;
+	width:360px;
+	height:300px;
+}
+#subway_box{
+	border:2px solid #F4FF52;
+	margin-top:40px;
+	margin-right:10px;
+	width:360px;
+	height:300px;
+}
+#footer{
+	padding-top: 30px;
+	height:100px;
+	/*border: 2px solid gray;*/
+}
+</style>
+</head>
+
+<body>
+{%extends "header.html"%}
+    {%block body%}
+<!-- index.html 메인화면 -->
+<div class="span12">
+
+</div>
+<div class="container">
+	
+		<div class="col-md-3" id="search_box">
+			
+		</div>
+		<div class="col-md-3" id="cal_box">
+
+		</div>
+		<div class="col-md-3" id="subway_box">
+
+		</div>
+</div>
+
+    {%endblock%}
+</body>
+
+</html>

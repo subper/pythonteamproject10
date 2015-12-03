@@ -1,0 +1,206 @@
+﻿<title>공연은 지하철을 타고...</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../static/css/fonts.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+body {
+    font-family: 'Oegyein';
+}
+
+/*HEADER*/
+#header{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*background-color: #FFEFA3;*/
+}
+#logo{
+    padding-right: 0;
+}
+#navbar{
+    padding-left: 0;
+}
+#menulist{
+	padding-top: 40px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.menu{
+	font-family: 'Ttalgimakarong';
+	font-size: 23px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	color: black;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+}
+.menu:hover{
+	font-family: 'Ttalgimakarong';
+	font-size: 23px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	color: black;
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+    border-radius: 5px;
+}
+#home_menu:hover{
+    background-color: #FF9480;
+}
+#search_menu:hover{
+    background-color: #E85349;
+}
+#calender_menu:hover{
+    background-color: #FFEFA3;
+}
+#place_menu:hover{
+    background-color: #00A178;
+}
+#buttonlist{
+    padding-top: 50px;
+    /*padding-left: 0;*/
+    padding-right: 0;
+}
+.flashms{
+    margin: 0;
+    padding: 5px;
+    position: absolute;
+    top: 95px;
+    right: 160px;
+}
+
+/*CONTENTS*/
+#contents{
+    padding-bottom: 20px;
+}
+
+/*POPUP*/
+.modal-header, h4, .close_popup {
+    background-color: #333;
+    color: #fff !important;
+    border-radius: 5px 5px 0 0;
+}
+.modal-body{
+    padding: 20px 70px 20px 70px;
+}
+.submitbt{
+    background-color: #333;
+    color: #fff !important;
+}
+</style>
+
+<!--HEADER-->
+<div id="header" class="col-md-12">
+	<div class="row">
+        <!-- LOGO 사진 -->
+	    <div class="col-md-offset-1 col-md-5" id="logo">
+            <img src="../static/img/logo.jpg" class="img-rounded" alt="Cinque Terre" width="500" height="130">
+	    </div>
+
+	    <div class="col-md-6" id="navbar">
+            <!-- 메뉴 리스트 -->
+	        <div class="col-md-8" id="menulist">
+	    	    <a href="{{ url_for('index') }}" class="menu" id="home_menu">홈</a>
+	    	    <a href="{{ url_for('search') }}" class="menu" id="search_menu">검색하기</a>
+	    	    <a href="{{ url_for('show_calender') }}" class="menu" id="calender_menu">공연달력</a>
+	    	    <a href="{{ url_for('show_subway') }}" class="menu" id="place_menu">공연노선도</a>
+	        </div>
+            <!-- 회원 버튼 리스트 -->
+            <div class="col-md-4" id="buttonlist">
+                <!-- 로그인 안 했을 때 -->
+                {% if not session.logged_in %}
+                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#login">로그인</button>
+                <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#join">회원가입</button>
+
+                <!-- 로그인했을 때 -->
+                {% else %}
+                <a href="{{ url_for('show_mypage') }}" class="btn btn-default btn-sm">마이페이지</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-default btn-sm">로그아웃</a>
+                {% endif %}
+            </div>
+            <!-- FLASH 출력 -->
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-warning col-xs-6 fade in text-center flashms">
+                {{ message }}<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            </div>
+            {% endfor %}
+	    </div>
+	</div>
+</div>
+
+<!--CONTENTS-->
+<div id="contents" class="col-lg-12">
+    {% block body %}
+    {% endblock %}
+</div>
+
+<!--POPUP LAYOUT-->
+<!-- 로그인 팝업 -->
+<div id="login" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<!-- 팝업 내용 -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close close_popup" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title text-center">로그인하기</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" role="form" method="post" action="{{ url_for('login') }}">
+                    <div class="form-group">
+                        <label for="email">&nbsp;<span class="glyphicon glyphicon-pencil"></span> Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">&nbsp;<span class="glyphicon glyphicon-pencil"></span> Password</label>
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block submitbt">
+                            로그인<span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 회원가입 팝업 -->
+<div id="join" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- 팝업 내용 -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">회원가입하기</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form" method="post" action="{{ url_for('add_member') }}">
+                    <div class="form-group">
+                        <label for="email">&nbsp;<span class="glyphicon glyphicon-pencil"></span> Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">&nbsp;<span class="glyphicon glyphicon-pencil"></span> Password</label>
+                        <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Enter password">
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd_ck">&nbsp;<span class="glyphicon glyphicon-pencil"></span> Password Check</label>
+                        <input type="password" class="form-control" id="pwd_ck" name="pwd_ck" placeholder="Enter password">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block submitbt">
+                            회원가입<span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

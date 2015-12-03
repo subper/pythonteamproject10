@@ -1,0 +1,64 @@
+﻿h2{
+    text-align: center;
+}
+
+#list_item {
+	border-bottom: 4px solid rgba(205, 204, 204, 1.0);
+	width: 800px;	height: 200px;
+	margin: 8px auto;	padding: 5px 8px 5px 8px;
+	background-color: rgba(255, 255, 255, 0.4);
+	position: relative;
+    margin-top: 20px;
+}
+
+#per_img{
+	float:left;
+}
+
+#per_img > img{
+	height: 180px;
+	width: 300px;
+
+}
+
+#per{
+	float: left;
+    margin-left: 4px;
+    padding-left: 10px;
+}
+
+#per_name{
+	font-size: 18pt; font-weight: bold;
+	color:rgba(14, 105, 144, 1.0)
+}
+
+#like{
+	text-align: right;	
+	position: absolute;		
+	right: 8px;
+	bottom: 10px;
+}
+
+#like img{
+	width: 50px;
+	height: 50px;
+}
+
+#imgname{
+	overflow: hidden;
+}
+
+.search_bar{
+	text-align: center;
+	margin-top: 50px; margin-bottom: 50px;
+	height:30px;
+}
+.input_category{
+	height: 30px;
+}
+
+.input_search{
+	height: 30px;
+	width: 300px
+}
+

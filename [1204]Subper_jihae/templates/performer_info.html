@@ -1,0 +1,51 @@
+﻿<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/info_css.css') }}">
+
+{% extends "header.html" %}
+
+{%block body%}
+
+<h2> 공연자 정보 </h2>
+<div id="name">
+    {{result.pname}}
+</div>
+
+{% if result.dprof==None %}
+<div id="dnon">
+    <br />서울메트로 아티스트 카페에서 제공하는 정보가 없습니다. ㅠ3ㅠ
+</div> 
+{% else %}
+<div id="dprof">
+    <img class="dprof" src="{{result.dprof}}">
+</div>
+{% endif %}
+
+{% if result.fpage==None %}
+<div id="fnon">
+    페이스북 페이지를 운영하지 않는 아티스트입니다. ㅠ3ㅠ
+</div>
+{% else %}
+<div id="fbar">
+    <div id="fpic">
+        <img class="fpic" src="{{result.fpic}}">
+    </div>
+    <div id="fpage">
+        <br /><br/>
+        <br>페이스북 페이지</br>
+        <a href="{{result.fpage}}">{{result.fpage}}</a>
+    </div>
+
+</div>
+
+<div id="fprof">
+    {% for str in result.fprof %}
+    {% if str != "" %}
+    {{str}}<br />
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div id="fcover">
+    <img class="fcover" src="{{result.fcover}}">
+</div>
+{% endif %}
+{%endblock%}

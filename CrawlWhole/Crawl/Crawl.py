@@ -1,6 +1,6 @@
 ﻿import re
 from bs4 import BeautifulSoup
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 from urllib.parse import quote, urljoin
 import sqlite3 as sqlite
 import webbrowser
@@ -162,6 +162,16 @@ def crawlDaum(num, inList):
             sql = 'insert into dinfo (pname, dprof) values(?,?);'
             cur.execute(sql, (artist, str(dimg)))
 
+#다음의 이미지 url을 파일로 저장 ㅠㅠ(access권한 문제..하)
+def imgUrlToFile(url, referer, filename):
+    f = open(filename,'wb') # create file
+    request = Request(url)
+    request.add_header('Referer', referer) # set referer #헤더를 추가해서 다음에서 접속하는 효과를
+    response = urlopen(request) # connet
+    f.write(response.read()) # save buffer to file
+    f.close()
+
+
 
 #아티스트 리스트 만들기
 artistList = []
@@ -184,6 +194,15 @@ for row in cur:
 #    crawlDaum(i, artistList)
 
 #con.commit()
+
+#3) 이미지 url을 파일로 저장..
+sql = 'select pname, dprof from dinfo'
+cur.execute(sql)
+
+for row in cur:
+    fileName = row[0]+".jpg"
+    imgUrl = row[1]
+    imgUrlToFile(imgUrl,'http://daum.net',fileName)
 
 
 #디비에 들어갔나 확인

@@ -1,0 +1,92 @@
+﻿h2{
+    text-align: center;
+}
+
+#name{
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    color: rgb(128, 128, 128);
+
+}
+
+#dnon{
+    text-align:center;
+    width: 900px;	height: 80px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    margin: 10px auto;
+}
+
+#dprof{
+    text-align: center;
+}
+
+#dprof > div{
+    text-align:center;
+    width: 900px;	height: 300px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#dprof > img{
+    width: 900px;	height: 300px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#fnon{
+    text-align: center;
+    width: 900px;	
+	margin: 10px auto;	
+}
+
+#fbar {
+	width: 900px;	height: 300px;
+	margin: 10px auto;	
+	position: relative;
+    overflow: hidden;
+}
+
+#fpic{
+    float:left;
+}
+
+#fpic > img{
+    width: 500px;	height: 300px;
+}
+
+#fpage{
+    font-size: 20px;
+    width: 400px;	height: 300px;
+    padding: 10px;
+    float:left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+#fpage > a{
+    font-size:22px;
+    width: 450px;	height: 300px;
+}
+
+#fprof{
+    padding: 10px 0px;
+    border-bottom: 4px dotted rgba(205, 204, 204, 1.0);
+    border-top: 4px dotted rgba(205, 204, 204, 1.0);
+    width: 900px;
+    margin: 10px auto;
+    font-size: 15px;
+    text-align: center;
+}
+
+#fcover{
+    width: 900px;
+    margin: 10px auto;
+}
+
+#fcover>img{
+    width: 900px;	height: 500px;
+}

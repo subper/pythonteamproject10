@@ -1,0 +1,104 @@
+﻿<html>
+
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../static/css/fonts.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <meta charset="utf-8" />
+    <title>공연은 지하철을 타고...</title>
+    <style>
+       .span8 {
+            border: 2px solid white;
+            height: 500px;
+            text-align:center;
+        }
+       .span8 > img {
+           
+       }
+       .span8 > h2{
+             font-family: 'Oegyein';
+             text-align: center;
+       }
+       .span8>form>.btn{
+           opacity: 0;
+       }
+       
+        .span8 > form >#sadang {
+            background-color:white;
+            width: 10px;
+            height: 25px;
+            position: relative;
+            right: 55px;
+            bottom:115px;
+            border-radius: 50px;
+            color: yellow;
+            opacity: 0;
+        }
+        .span8 >form> #dongdaemoon{
+            background-color:white;
+            width: 10px;
+            height: 25px;
+            position: relative;
+            left: 115px;
+            bottom: 275px;
+            color: yellow;
+            border-radius: 50px;
+            opacity: 0;
+         
+        }
+        .span8 >form > #seolleung{
+            background-color:white;
+            width: 10px;
+            height: 25px;
+            position: relative;
+            left: 172px;
+            bottom:192px;
+            border-radius: 50px;
+            color: yellow;
+            opacity: 0;
+            
+        }
+        .span8 > form > #seolleung:hover{
+            
+            opacity: 1.0;
+        }
+        .span8 > form > #dongdaemoon:hover{
+             opacity: 1.0;
+        }
+       .span8 > form > #sadang:hover{
+            opacity: 1.0;
+        }
+       .glyphicon{
+           color:black;
+           right:15px;
+           font-size:30px;
+       }
+    </style>
+</head>
+<body>
+    {%extends "header.html"%}
+    {%block body%}
+    <div class="span8">
+        <h2>공연 노선도</h2>
+        <img src="static/img/linemap2.png" width="930" />
+       
+            <form class="sadang_search" method=post action="{{ url_for('linemap_result') }}">
+            <input type="hidden" name="place" value="사당역">
+            <button type="submit" class="btn" id="sadang"><span class="glyphicon glyphicon-music"></span></button>
+        </form>
+        <form class="dongdaemoom_search" method=post action="{{ url_for('linemap_result')}}">
+            <input type="hidden" name="place" value="동대문역사문화공원역">
+            <button type="submit" class="btn" id="dongdaemoon"><span class="glyphicon glyphicon-music"></span></button>
+        </form>
+        <form class="seollong_search" method=post action="{{ url_for('linemap_result') }}">
+            <input type="hidden" name="place" value="선릉역"/>
+            <button type="submit" class="btn" id="seolleung" ><span class="glyphicon glyphicon-music"></span></button>
+        </form>
+
+        </div>
+    {%endblock%}
+</body>
+</html>

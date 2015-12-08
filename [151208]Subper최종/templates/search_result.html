@@ -1,0 +1,44 @@
+﻿<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search_css.css') }}">
+{% extends "header.html" %}
+{%block body%}
+{% if result|length == 0 %}
+
+<div id="noresult"> 
+    <br />
+    <br />
+    <br />
+    <br />
+    검색 결과가 없습니다. ㅠ3ㅠ
+</div>
+
+{% else %}
+
+{% for entry in result %}
+<div id="list_item">
+    <div id="imgname">
+        <p id="per_img"> {%if entry.pic == None%} <img src="http://www.raccoonbot.com/wp-content/plugins/special-recent-posts/images/no-thumb.png"> {%else%} <img src="{{entry.pic}}"> {%endif%} </p>
+        <div id="per">
+            <p id="per_name"> <a href="{{ url_for('performer_info', pname=entry.name) }}"> {{entry.name}} </a> </p>
+            <p id="per_genre"> {{entry.genre}} </p>
+            <p id="per_place"> {{entry.place}} </p>
+            <p id="per_time"> {{entry.time}} </p>
+        </div>
+
+        {% if not session.logged_in %}  
+        <p id="like"><a href="#"><img src="../static/img/like.png"></a></p>
+        {% else %}
+            {%if likepnum.count(entry.num) != 0 %}
+                <p id="like"><a href="{{ url_for('like', pnum=entry.num) }}"><img src="../static/img/like_red.png"></a> </p>
+            {%else %}
+                <p id="like"><a href="{{ url_for('like', pnum=entry.num) }}"><img src="../static/img/like.png"></a> </p>
+            {%endif%}
+        {% endif %}
+    </div>
+</div>
+{% endfor %}
+
+{% endif %}
+<div class="text-center">
+    <a href="{{ url_for('search') }}" class="btn btn-default">검색 돌아가기</a>
+</div>
+{%endblock%}

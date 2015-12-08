@@ -1,0 +1,63 @@
+﻿<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mypage_css.css') }}">
+{% extends "header.html" %}
+{% block body %}
+
+<h2 class="text-center">마이페이지</h2>
+
+<div class="row" style="margin-bottom:8px;">
+    <div class="col-md-offset-1 col-md-5 text-center">
+        <h4 id="liketitle">즐겨찾기 공연</h4>
+
+        {% if result|length == 0 %}
+        <div id="listscroll">
+            <div id="nolike">
+                <p>즐겨찾기 정보가 없습니다.ㅠ3ㅠ</p>
+            </div>  
+        </div>
+
+        {% else %}
+        <div id="listscroll">
+            {% for entry in result %}
+            <div id="list_item">
+                <p id="per_img"> {%if entry.pic == None%} <img src="http://www.raccoonbot.com/wp-content/plugins/special-recent-posts/images/no-thumb.png"> {%else%} <img src="{{entry.pic}}"> {%endif%} </p>
+                <div id="per">
+                    <p id="per_name"> <a href="{{ url_for('performer_info', pname=entry.name) }}"> {{entry.name}} </a> </p>
+                    <p id="per_genre"> {{entry.genre}} </p>
+                    <p id="per_place"> {{entry.place}} </p>
+                    <p id="per_time"> {{entry.time}} </p>
+                    <a href="{{ url_for('nolike', pnum=entry.num) }}" id="cancelbt" class="btn btn-default">좋아요 취소</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-md-5 text-center">
+        <h4 id="recomtitle">공연 추천</h4>
+
+        {% if result2|length == 0 %}
+        <div id="listscroll">
+            <div id="nolike">
+                <p>공연추천 정보가 없습니다.ㅠ3ㅠ</p>
+            </div>
+        </div>
+
+        {% else %}
+        <div id="recomscroll">
+            {% for entry2 in result2 %}
+            <div id="list_item">
+                <p id="per_img"> {%if entry2.pic == None%} <img src="http://www.raccoonbot.com/wp-content/plugins/special-recent-posts/images/no-thumb.png"> {%else%} <img src="{{entry2.pic}}"> {%endif%} </p>
+                <div id="per">
+                    <p id="per_name"> <a href="{{ url_for('performer_info', pname=entry2.name) }}"> {{entry2.name}} </a> </p>
+                    <p id="per_genre"> {{entry2.genre}} </p>
+                    <p id="per_place"> {{entry2.place}} </p>
+                    <p id="per_time"> {{entry2.time}} </p>
+                    <a href="{{ url_for('like', pnum=entry2.num) }}" id="likebtn" class="btn btn-default">좋아요 ♥</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

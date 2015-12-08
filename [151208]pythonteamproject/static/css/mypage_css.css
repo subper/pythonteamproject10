@@ -1,0 +1,45 @@
+﻿#liketitle{
+    background-color: #FF9480;
+}
+
+#recomtitle{
+    background-color: #2C656B;
+}
+
+#listscroll{
+    height: 55%;
+    overflow-y: auto;
+    border: 2px solid #FF9480;
+    border-radius: 0 0 5px 5px;
+}
+
+#recomscroll{
+    height: 55%;
+    overflow-y: auto;
+    border: 2px solid #2C656B;
+    border-radius: 0 0 5px 5px;
+}
+
+#nolike{
+    margin-top: 100px;
+}
+
+#list_item{
+    border-bottom: 4px dotted rgba(205, 204, 204, 1.0);
+    width: 100%;
+    height: 220px;
+    padding: 8px;
+}
+
+#per_img{
+    float:left;
+}
+
+#per_img > img{
+    width: 200px;
+	height: 200px;
+}
+
+#per{
+    padding-top: 30px;
+}
